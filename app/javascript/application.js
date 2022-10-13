@@ -4,3 +4,4 @@ import "controllers"
 //chartkick 
 import "chartkick"
 import "Chart.bundle"
+import "bootstrap"
