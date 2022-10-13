@@ -4,14 +4,34 @@
 
 <h1 class="text-center">Purchases</h1>
 
+<%= link_to "New purchase", new_purchase_path, class: "btn btn-success" %>
+<hr>
 <div id="purchases">
-  <% @purchases.each do |purchase| %>
-    <%= render purchase %>
-    <p>
-      <%= link_to "Show this purchase", purchase %>
-    </p>
-  <% end %>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">S.N.</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Purchase Date</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @purchases.each do |purchase| %>
+      <tr>
+        <th scope="row"><%= purchase.id %></th>
+        <td><%= purchase.customer.name %></td>
+        <td><%= purchase.item.name %></td>
+        <td><%= purchase.quantity %></td>
+        <td><%= purchase.purchase_date %></td>
+        <td><%= button_to "View", purchase_path(purchase), class:"btn btn-warning" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New purchase", new_purchase_path %>
 </div>
