@@ -1,6 +1,8 @@
+<div class="container">
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Purchases</h1>
+<h1 class="text-center">Purchases</h1>
 
 <div id="purchases">
   <% @purchases.each do |purchase| %>
@@ -12,3 +14,4 @@
 </div>
 
 <%= link_to "New purchase", new_purchase_path %>
+</div>
