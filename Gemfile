@@ -68,3 +68,5 @@ end
 gem "chartkick", "~> 4.2"
 
 gem "bootstrap", "~> 5.2"
+
+gem "devise", "~> 4.8"
