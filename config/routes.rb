@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'visualizor/index'
   devise_for :customers
   resources :purchases
   resources :items

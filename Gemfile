@@ -70,3 +70,11 @@ gem "chartkick", "~> 4.2"
 gem "bootstrap", "~> 5.2"
 
 gem "devise", "~> 4.8"
+
+gem "groupdate", "~> 6.1"
+
+gem "faker", "~> 2.23"
+
+gem "factory_bot_rails", "~> 6.2"
+
+gem "rspec-rails", "~> 6.0"

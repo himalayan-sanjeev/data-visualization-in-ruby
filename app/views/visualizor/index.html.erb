@@ -1,0 +1,42 @@
+<div class="container">
+<div class="jumbotron bg-dark">
+  <h1 class="text-center text-light">Some Visual Representations</h1>
+</div>
+<div class="row">
+  <div class="col-6">
+    <%= line_chart Purchase.group_by_month(:purchase_date).sum(:quantity),title:"Line Chart", ytitle: 'Quantity purchased', xtitle:'Purchase date by month', library: {backgroundColor: "#eee"} %>
+  </div>
+  <div class="col-6">
+    <%= line_chart Purchase.group_by_day(:purchase_date).sum(:quantity), title:"Line Chart", ytitle: 'Quantity purchased', xtitle:'Purchase date by day' %></div>
+  </div>
+</div>
+<br><br><br>
+<div class="row">
+  <div class="col-6">
+    <%= pie_chart Purchase.group(:quantity).count,title:"Pie Chart",height: "500px", legend: 'bottom' %>
+  </div>
+  <div class="col-6">
+    <%= column_chart Purchase.group_by_day(:purchase_date).sum(:quantity),title:"column chart", height:"500px", ytitle:"Quantity purchased", xtitle:"Purchase date" %>
+  </div>
+</div>
+<br><br><br>
+<div class="row">
+  <div class="col-6">
+    <%= column_chart Purchase.group_by_day_of_week(:purchase_date, format: "%a").count ,title:"column chart", height:"500px", ytitle:"Quantity purchased", xtitle:"Products purchase by day" %>
+  </div>
+  <div class="col-6">
+    <%= column_chart Purchase.group_by_day(:purchase_date).sum(:quantity),title:"column chart", height:"500px", ytitle:"Quantity purchased", xtitle:"Purchase date" %>
+  </div>
+</div>
+<br><br><br>
+<div class="row">
+  <div class="col-6">
+    <%= column_chart Purchase.pluck(:purchase_date, :quantity),title:"column chart", xtitle: "Date", ytitle: "quantity" %>
+  </div>
+  <div class="col-6">
+    <h5 class="text-center">Country level customer distribution</h5><br>
+      <%= geo_chart Customer.group(:location).count %>
+  </div>
+</div>
+<br><br>
+</div>
