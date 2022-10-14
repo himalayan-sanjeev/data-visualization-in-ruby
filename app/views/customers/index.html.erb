@@ -24,7 +24,7 @@
         <td><%= customer.name %></td>
         <td><%= customer.location %></td>
         <td><%= customer.email %></td>
-        <td><%= button_to "View", customer_path(customer), class:"btn btn-warning" %></td>
+        <td><%= link_to "View", customer_path(customer), class:"btn btn-warning" %></td>
       </tr>
       <% end %>
     </tbody>
