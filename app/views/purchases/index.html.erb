@@ -31,7 +31,12 @@
         <td><%= purchase.item.name %></td>
         <td><%= purchase.quantity %></td>
         <td><%= purchase.purchase_date %></td>
-        <td><%= link_to "View", purchase_path(purchase), class:"btn btn-warning" %></td>
+        <td>
+          <%= link_to "View", purchase_path(purchase), class:"btn btn-primary" %>
+          <%= link_to "Edit", edit_purchase_path(purchase), class:"btn btn-warning" %>
+          <%= link_to "Delete", purchase,class: "button",
+              data: { turbo_method: :delete, turbo_confirm: "Really?!?" }, class:"btn btn-danger" %>
+        </td>
       </tr>
       <% end %>
     </tbody>

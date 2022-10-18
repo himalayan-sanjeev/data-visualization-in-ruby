@@ -4,6 +4,15 @@
 </div>
 <div class="row">
   <div class="col-6">
+    <%= column_chart Item.pluck(:name, :price),title:"Product-Price column chart", xtitle: "Products", ytitle: "Price" %>
+  </div>
+  <div class="col-6">
+    <h5 class="text-center">Country level customer distribution</h5><br>
+      <%= geo_chart Customer.group(:location).count %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
     <%= line_chart Purchase.group_by_month(:purchase_date).sum(:quantity),title:"Line Chart", ytitle: 'Quantity purchased', xtitle:'Purchase date by month', library: {backgroundColor: "#eee"} %>
   </div>
   <div class="col-6">
@@ -33,10 +42,6 @@
   <div class="col-6">
     <%= column_chart Purchase.pluck(:purchase_date, :quantity),title:"column chart", xtitle: "Date", ytitle: "quantity" %>
   </div>
-  <div class="col-6">
-    <h5 class="text-center">Country level customer distribution</h5><br>
-      <%= geo_chart Customer.group(:location).count %>
-  </div>
 </div>
-<br><br>
+<br><br><br>
 </div>

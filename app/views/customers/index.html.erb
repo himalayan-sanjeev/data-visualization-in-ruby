@@ -14,7 +14,6 @@
         <th scope="col">Location</th>
         <th scope="col">Email</th>
         <th scope="col">Action</th>
-
       </tr>
     </thead>
     <tbody>
@@ -24,7 +23,12 @@
         <td><%= customer.name %></td>
         <td><%= customer.location %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to "View", customer_path(customer), class:"btn btn-warning" %></td>
+         <td>
+          <%= link_to "View", customer_path(customer), class:"btn btn-primary" %>
+          <%= link_to "Edit", edit_customer_path(customer), class:"btn btn-warning" %>
+          <%= link_to "Delete", customer,
+              data: { turbo_method: :delete, turbo_confirm: "Really?!?" }, class:"btn btn-danger" %>
+        </td>
       </tr>
       <% end %>
     </tbody>
